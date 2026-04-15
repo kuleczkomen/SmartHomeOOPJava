@@ -34,6 +34,10 @@ public class SpaceTrip {
         }
     }
 
+    public static SpaceTripBuilder builder() {
+        return new SpaceTripBuilder();
+    }
+
     public String getDestination() { return destination; }
     public int getDurationDays() { return durationDays; }
     public LocalDate getLaunchDate() { return launchDate; }

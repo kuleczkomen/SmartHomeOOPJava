@@ -23,14 +23,13 @@ public class Main {
     private static void runColonistStandardFlow(ReservationPlanner planner) {
         System.out.println("--- Scenariusz 1: Standardowa Kolonizacja Marsa ---");
 
-        SpaceTrip marsTrip = new SpaceTrip(
-                "Mars",
-                null,
-                LocalDate.now().plusMonths(8),
-                10,
-                365,
-                "COLONIAL_V1"
-        );
+        SpaceTrip marsTrip = SpaceTrip.builder()
+                .withDestination("Mars")
+                .withLaunchDate(LocalDate.now().plusMonths(8))
+                .withExtraOxygenTanks(10)
+                .withDurationDays(365)
+                .withShipModuleType("COLONIAL_V1")
+                .build();
 
         var res = planner.planColonistTrip(SpaceTripType.COLONIST, marsTrip);
         printReservationDetails(res);
