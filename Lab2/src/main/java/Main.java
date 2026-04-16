@@ -71,7 +71,7 @@ public class Main {
             System.out.println("Bateria: " + newPhone.batterState + "%");
         }
 
-        // Proba operacji bez baterii
+        // Proba operacji be baterii
         System.out.println("Proba rozmowy bez baterii:");
         newPhone.call("+48123456789");
 
