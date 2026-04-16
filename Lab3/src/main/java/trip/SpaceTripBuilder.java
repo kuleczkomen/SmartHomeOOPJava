@@ -5,8 +5,12 @@ import java.time.LocalDate;
 public class SpaceTripBuilder {
 
     private  String destination;
+
+    private  Double insuranceLimit;
     private  LocalDate launchDate;
+    private  Integer extraOxygenTanks;
     private  int durationDays;
+    private  String shipModuleType;
 
     public SpaceTripBuilder withDestination(String destination) {
         this.destination = destination;
