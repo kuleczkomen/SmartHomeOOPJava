@@ -18,20 +18,14 @@ public class SpaceTrip {
             LocalDate launchDate,
             @Nullable Integer extraOxygenTanks,
             int durationDays,
-            String shipModuleType
+            @Nullable String shipModuleType
     ) {
         this.destination = destination;
         this.insuranceLimit = insuranceLimit;
         this.launchDate = launchDate;
         this.extraOxygenTanks = extraOxygenTanks;
         this.durationDays = durationDays;
-
-        //"STANDARD_V2" to defaultowa wartość
-        if (shipModuleType == null || shipModuleType.isEmpty()) {
-            this.shipModuleType = "STANDARD_V2";
-        } else {
-            this.shipModuleType = shipModuleType;
-        }
+        this.shipModuleType = shipModuleType;
     }
 
     public static SpaceTripBuilder builder() {
