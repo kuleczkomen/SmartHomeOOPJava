@@ -38,14 +38,13 @@ public class Main {
     private static void runScienceDeepSpaceFlow(ReservationPlanner planner) {
         System.out.println("\n--- Scenariusz 2: Misja Badawcza DeepSpace (High Risk) ---");
 
-        SpaceTrip deepSpaceTrip = new SpaceTrip(
-                "DeepSpace",
-                2000000.0,
-                LocalDate.now().plusMonths(3),
-                null,
-                120,
-                "LAB_MODULE"
-        );
+        SpaceTrip deepSpaceTrip = SpaceTrip.builder()
+                .withDestination("DeepSpace")
+                .withInsuranceLimit(2000000.0)
+                .withLaunchDate(LocalDate.now().plusMonths(3))
+                .withDurationDays(120)
+                .withShipModuleType("LAB_MODULE")
+                .build();
 
         var res = planner.planScienceTrip(SpaceTripType.SCIENCE, deepSpaceTrip);
         printReservationDetails(res);
@@ -54,14 +53,11 @@ public class Main {
     private static void runLastMinuteEmergencyFlow(ReservationPlanner planner) {
         System.out.println("\n--- Scenariusz 3: Awaryjny lot Last Minute ---");
 
-        SpaceTrip emergencyTrip = new SpaceTrip(
-                "Księżyc",
-                null,
-                LocalDate.now().plusDays(5),
-                null,
-                14,
-                null
-        );
+        SpaceTrip emergencyTrip = SpaceTrip.builder()
+                .withDestination("Księżyc")
+                .withLaunchDate( LocalDate.now().plusDays(5))
+                .withDurationDays(14)
+                .build();
 
         var res = planner.planColonistTrip(SpaceTripType.COLONIST, emergencyTrip);
         printReservationDetails(res);
