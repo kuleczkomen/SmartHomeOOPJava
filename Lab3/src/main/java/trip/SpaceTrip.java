@@ -25,13 +25,11 @@ public class SpaceTrip {
         this.launchDate = launchDate;
         this.extraOxygenTanks = extraOxygenTanks;
         this.durationDays = durationDays;
+        this.shipModuleType = shipModuleType;
+    }
 
-        //"STANDARD_V2" to defaultowa wartość
-        if (shipModuleType == null || shipModuleType.isEmpty()) {
-            this.shipModuleType = "STANDARD_V2";
-        } else {
-            this.shipModuleType = shipModuleType;
-        }
+    public static SpaceTripBuilder builder() {
+        return new SpaceTripBuilder();
     }
 
     public String getDestination() { return destination; }
