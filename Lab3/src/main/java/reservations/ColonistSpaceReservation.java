@@ -2,7 +2,7 @@ package reservations;
 
 import trip.SpaceTrip;
 
-public class ColonistSpaceReservation extends ReservationFactory, implements SpaceReservation{
+public class ColonistSpaceReservation extends ReservationFactory  implements SpaceReservation{
     private final SpaceTrip trip;
     private final double subsidy;
     private double price;
