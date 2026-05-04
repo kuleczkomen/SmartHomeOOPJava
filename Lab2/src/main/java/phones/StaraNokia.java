@@ -2,8 +2,8 @@ package phones;
 
 //Moze i nie umie za dużo
 //Ale się stara
-public class StaraNokia implements IPhone {
-    public int batteryPercentage = 100;
+public class StaraNokia implements Phone, BatteryDevice {
+    private int batteryPercentage = 100;
 
     @Override
     public void call(String number) {
@@ -27,33 +27,17 @@ public class StaraNokia implements IPhone {
     }
 
     @Override
-    public void takePhoto() {
-        throw new UnsupportedOperationException("Błąd: Nokia 3310 nie ma aparatu!");
+    public void chargeWithPin() {
+        setBattery(batteryPercentage + 30);
     }
 
     @Override
-    public void connectTo5G() {
-        throw new UnsupportedOperationException("Błąd: 5G w 2000 roku? Zapomnij.");
+    public int getBattery() {
+        return batteryPercentage;
     }
 
     @Override
-    public void browseInternet() {
-        throw new UnsupportedOperationException("Błąd: Brak przeglądarki internetowej.");
-    }
-
-    @Override
-    public void backupPhotos() {
-        throw new UnsupportedOperationException("XD no na pewno to zadziała tutaj");
-    }
-
-    @Override
-    public void charge(String chargerType) {
-        if (chargerType.equals("Pin")) {
-            this.batteryPercentage += 30;
-        } else if (chargerType.equals("Thin-Pin")) {
-            System.out.println("A tez nie wspieram");
-        } else {
-            System.out.println("Nieobsługiwana ładowarka!");
-        }
+    public void setBattery(int battery) {
+        batteryPercentage = battery;
     }
 }
