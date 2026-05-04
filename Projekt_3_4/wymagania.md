@@ -11,7 +11,7 @@
 - (dodatkowo) wizytor
 
 
-3. dodawanie nowych sprzętów (nazwa, typ urządzenia, pomieszczenie)
+1. dodawanie nowych sprzętów (nazwa, typ urządzenia, pomieszczenie)
 2. urządzenia można włączać i wyłączać
 3. termostat może zmieniać temperaturę, max 1 termostat na pokój
 4. głośnik ustawia poziom głośności, ale w sypialni max 30
