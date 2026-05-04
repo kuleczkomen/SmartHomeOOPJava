@@ -1,6 +1,6 @@
-# Należy oddac UML, krótki opis oraz kod
+## Należy oddac UML, krótki opis oraz kod
 
-## Użyj wzorców:
+### Użyj wzorców:
 - Factory / Factory Method
 - Builder
 - Strategia
@@ -10,8 +10,10 @@
 - Fasada
 - (dodatkowo) wizytor
 
+1. ```dodawanie nowych sprzętów``` (nazwa, typ urządzenia, pomieszczenie)
 
-1. dodawanie nowych sprzętów (nazwa, typ urządzenia, pomieszczenie)
+piętro -> pokój -> sprzęt 
+
 2. urządzenia można włączać i wyłączać
 3. termostat może zmieniać temperaturę, max 1 termostat na pokój
 4. głośnik ustawia poziom głośności, ale w sypialni max 30
