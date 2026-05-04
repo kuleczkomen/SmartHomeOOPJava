@@ -60,3 +60,6 @@ Co prawda logika tego nie jest jakaś potężna - ale może się zmienić (agile
 
 - [Prezentacja z zajęć](https://canva.link/9y9yn6td29da651)
 - [Refactoring Guru](https://refactoring.guru/pl/design-patterns/creational-patterns)
+
+--- moje notatki
+Factory i strategia są bardzo podobne (logika vs tworzenie obiektu)
