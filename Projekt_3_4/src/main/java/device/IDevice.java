@@ -1,7 +1,8 @@
 package device;
 
-public interface Device {
+public interface IDevice {
 
     void switchOn();
     void switchOff();
+    boolean isOn();
 }
