@@ -4,7 +4,7 @@ public class KitchenFactory implements IRoomFactory {
 
     @Override
     public IRoom createRoom() {
-        Kitchen kitchen = new Kitchen();
+        Kitchen kitchen = RoomBuilder
         return kitchen;
     }
 }
