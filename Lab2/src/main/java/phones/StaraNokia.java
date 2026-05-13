@@ -1,15 +1,23 @@
 package phones;
 
+import cameras.FrontCamera;
+
 //Moze i nie umie za dużo
 //Ale się stara
 public class StaraNokia implements IPhone {
-    public int batteryPercentage = 100;
+    public int batteryState;
+    private FrontCamera camera;
+
+        public StaraNokia() {
+            this.camera = new FrontCamera();
+            this.batteryState = 3000;
+        }
 
     @Override
     public void call(String number) {
-        if (batteryPercentage > 5){
+        if (batteryState > 100){
             System.out.println("Dzwonię z niezniszczalnej Nokii do: " + number);
-            batteryPercentage -= 5;
+            batteryState -= 100;
         }
         else {
             System.out.println("Bateria jest za słaba, aby zadzwonić!");
@@ -18,9 +26,9 @@ public class StaraNokia implements IPhone {
 
     @Override
     public void sendSms(String number, String message) {
-        if (batteryPercentage > 3) {
+        if (batteryState > 50) {
             System.out.println("Wysyłam SMS do " + number + ": " + message);
-            batteryPercentage -= 3;
+            batteryState -= 50;
         } else {
             System.out.println("Bateria jest za słaba, aby wysłać SMS!");
         }
@@ -28,7 +36,15 @@ public class StaraNokia implements IPhone {
 
     @Override
     public void takePhoto() {
-        throw new UnsupportedOperationException("Błąd: Nokia 3310 nie ma aparatu!");
+        if (batteryState > 125){
+            camera.makeSelfie(30, 50);
+            batteryState -= 125;
+        }
+        else {
+            System.out.println("Bateria jest za słaba, aby wysłać SMS!");
+        }
+
+
     }
 
     @Override
@@ -49,7 +65,7 @@ public class StaraNokia implements IPhone {
     @Override
     public void charge(String chargerType) {
         if (chargerType.equals("Pin")) {
-            this.batteryPercentage += 30;
+            this.batteryState += 400;
         } else if (chargerType.equals("Thin-Pin")) {
             System.out.println("A tez nie wspieram");
         } else {

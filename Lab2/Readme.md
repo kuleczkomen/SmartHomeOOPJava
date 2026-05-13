@@ -1,4 +1,4 @@
-﻿## Lab 2: Dzwoni kuzyn
+## Lab 2: Dzwoni kuzyn
 
 Celem laba jest zapoznanie studentów z zasadami SOLID, jak i innymi podstawowymi regułami, którymi należy się kierować w trakcie implementacji systemu.
 
@@ -20,24 +20,26 @@ Zapoznaj się z dostarczonym kodem i poczyń odpowiedni refactor, tak aby kod sp
 
 Dla ułatwienia zadanie, dobrym pomysłem może byc wygenerowanie sobie diagramu klas z opcją "Show Dependencies".
 
-
-**Bardzo ważne: Notuj sobie gdzieś zmiany i powód tych zmian - przykładowo: Wprowadziłem dodatkową klasę X, ponieważ klasa Y miałą więcej niż jedną odpowiedzialność.**
-Istnieje spora szansa że będę z tego pytał przy oddawaniu laba
-
 *Jak dużo trzeba zrobić?*
 
 Refaktoryzować kod można bez końca tak, aby był ✨perfekcyjny✨, jednak gdzieś trzeba postawić granicę.
 Każda zasada z SOLIDa jest złamana przynajmniej raz — wystarczy naprawić każdą z nich przynajmniej raz.
 Niemniej, oczywiście, jeśli zauważysz złamianie zasady w innym miejscu, gorąco zachęcam, aby tę część kodu również poprawić.
 
+**Co załączyć** Tutaj oprócz kodu prosiłbym także o jakiś dokument (np. Markdown) podsumowywujący zakres zmian w kontekście danych zasad. Coś w stylu:
+
+*Zasada S - klasa `X` miała taką i taką odpowiedzialność więc wprowadziłem klasy `Y`, `Z` w celu rozdzielenia odpowiedzialności*
+
 ### Zadanie 2
 
-1. W kodzie projektu znajdziesz metodę, która zapisuje zdjęcia do chmury — dodaj nowego clouda, do którego można by zapisać zdjęcia. Złamianie której zasady uniemożliwiło łatwe dodanie nowego clouda?
+1. W kodzie projektu znajdziesz metodę, która zapisuje zdjęcia do chmury — dodaj nowego clouda, do którego można by zapisać zdjęcia.
 
 1. Dodatkowo zaproponuj rozszerzenie istniejącego systemu. Zwróć uwagę na to, aby sposób jego realizacji był zgodny z którąś zasadą SOLID.
 Może być to przykładowo dodanie nowej funkcjonalności do telefonu (ale dłuższej niż 5 linii), wzbogacenie telefonu o interakcję z innym urządzeniem/klasą (np. nadajnik GPS) lub wprowadzenie nowego telefonu.
 
-Chciałbym, aby przy oddawaniu laba odpowiedź z tego zadania wyglądała tak: "Wprowadziłem/am nową funkcjonalność X, została zrealizowana z dodaniem tej i tej klasy, w celu zachowania zasady Y".
+W markdownie wspomnianym w **Zadaniu 1** chciałbym także informację na temat wprowadzonej nowej funkcjonalności, coś w stylu:
+
+ *Wprowadziłem/am nową funkcjonalność X, została zrealizowana z dodaniem tej i tej klasy, w celu zachowania zasady Y*.
 
 ### Tipy typu "Zrób to za mnie IDE"
 

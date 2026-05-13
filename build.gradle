@@ -2,16 +2,41 @@ subprojects {
     apply plugin: 'java' // Wszystkie podfoldery to projekty Java
 
     repositories {
-        mavenCentral() // Skąd brać biblioteki (jeśli będziesz ich potrzebować)
+        mavenCentral() // Skąd brać biblioteki
     }
 
     dependencies {
         implementation 'org.jetbrains:annotations:24.0.0'
+
+        // --- ZESTAW DO TESTOWANIA ---
+
+        // 1. JUnit 5 (używamy BOM - Bill of Materials, aby automatycznie zarządzać wersjami submodułów)
+        testImplementation platform('org.junit:junit-bom:5.11.0')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+
+        // 2. Mockito
+        testImplementation 'org.mockito:mockito-core:5.14.0'
+        testImplementation 'org.mockito:mockito-junit-jupiter:5.14.0' // Integracja z JUnit 5
+
+        // 3. AssertJ (Fluent Assertions)
+        testImplementation 'org.assertj:assertj-core:3.26.0'
     }
 
     java {
         toolchain {
-            languageVersion = JavaLanguageVersion.of(25) // Ustaw swoją wersję Javy
+            languageVersion = JavaLanguageVersion.of(25) // Ustawiona wersja Javy
+        }
+    }
+
+    // --- KONFIGURACJA URUCHAMIANIA TESTÓW ---
+    tasks.named('test') {
+        // Kluczowe: każe Gradle'owi używać silnika JUnit 5 (Platform) zamiast starego JUnit 4
+        useJUnitPlatform()
+
+        // Opcjonalnie: logowanie wyników w konsoli (bardzo przydatne dla studentów na labach)
+        testLogging {
+            events "passed", "skipped", "failed"
+            showStandardStreams = true
         }
     }
 }
