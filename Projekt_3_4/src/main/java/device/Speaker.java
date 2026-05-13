@@ -3,7 +3,14 @@ package device;
 public class Speaker implements IDevice {
 
     private int volume;
+    private int maxVolume;
     private boolean isOn;
+
+    public Speaker(int volume, int maxVolume, boolean isOn) {
+        this.volume = volume;
+        this.maxVolume = maxVolume;
+        this.isOn = isOn;
+    }
 
     @Override
     public void switchOn() {
@@ -25,8 +32,14 @@ public class Speaker implements IDevice {
     public void setVolume(int newVolume) {
         if(!isOn) {
             IO.println("Error: Can't change device parameter when it's off");
+        } else if (newVolume > maxVolume) {
+            IO.println("Too loud!!!");
         } else {
             volume = newVolume;
         }
+    }
+
+    public void setMaxVolume(int newMaxVolume) {
+        maxVolume = newMaxVolume;
     }
 }
