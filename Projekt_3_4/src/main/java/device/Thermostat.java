@@ -3,7 +3,11 @@ package device;
 public class Thermostat implements IDevice {
 
     private int temp;
-    private boolean isOn;
+    private boolean isOn = true;
+
+    public Thermostat(int temp) {
+        this.temp = temp;
+    }
 
     @Override
     public void switchOn() {

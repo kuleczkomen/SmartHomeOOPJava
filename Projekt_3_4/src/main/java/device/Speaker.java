@@ -4,12 +4,11 @@ public class Speaker implements IDevice {
 
     private int volume;
     private int maxVolume;
-    private boolean isOn;
+    private boolean isOn = true;
 
-    public Speaker(int volume, int maxVolume, boolean isOn) {
+    public Speaker(int volume, int maxVolume) {
         this.volume = volume;
         this.maxVolume = maxVolume;
-        this.isOn = isOn;
     }
 
     @Override
