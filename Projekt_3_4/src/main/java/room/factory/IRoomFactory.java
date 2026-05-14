@@ -1,4 +1,6 @@
-package room;
+package room.factory;
+
+import room.IRoom;
 
 public interface IRoomFactory {
 

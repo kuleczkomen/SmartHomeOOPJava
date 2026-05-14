@@ -2,7 +2,7 @@ package device;
 
 public class LedLamp implements IDevice {
 
-    private boolean isOn;
+    private boolean isOn = true;
 
     @Override
     public void switchOn() {

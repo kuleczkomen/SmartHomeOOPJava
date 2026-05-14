@@ -1,35 +1,39 @@
-package room;
+package room.builder;
 
 import device.LedLamp;
 import device.Speaker;
 import device.Thermostat;
+import room.*;
 
 public class RoomBuilder {
 
-    private LedLamp ledLamp;
-    private Speaker speaker;
-    private Thermostat thermostat;
-    private RoomType roomType = null;
+    private LedLamp ledLamp = new LedLamp();
 
-    public RoomBuilder() {}
+    private int volume = 10;
+    private int maxVolume = 100;
+    private Speaker speaker = new Speaker(volume, maxVolume);
 
-    public RoomBuilder withRoomType(RoomType roomType) {
+    private int temp = 20;
+    private Thermostat thermostat = new Thermostat(temp);
+
+    private final RoomType roomType;
+
+    public RoomBuilder(RoomType roomType) {
         this.roomType = roomType;
+    }
+
+    public RoomBuilder withVolume(int volume) {
+        this.volume = volume;
         return this;
     }
 
-    public RoomBuilder withLedLamp(LedLamp ledLamp) {
-        this.ledLamp = ledLamp;
+    public RoomBuilder withMaxVolume(int maxVolume) {
+        this.maxVolume = maxVolume;
         return this;
     }
 
-    public RoomBuilder withSpeaker(Speaker speaker) {
-        this.speaker = speaker;
-        return this;
-    }
-
-    public RoomBuilder withThermostat(Thermostat thermostat) {
-        this.thermostat = thermostat;
+    public RoomBuilder withTemp(int temp) {
+        this.temp = temp;
         return this;
     }
 
