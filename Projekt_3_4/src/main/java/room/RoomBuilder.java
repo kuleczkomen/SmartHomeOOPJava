@@ -9,6 +9,14 @@ public class RoomBuilder {
     private LedLamp ledLamp;
     private Speaker speaker;
     private Thermostat thermostat;
+    private RoomType roomType = null;
+
+    public RoomBuilder() {}
+
+    public RoomBuilder withRoomType(RoomType roomType) {
+        this.roomType = roomType;
+        return this;
+    }
 
     public RoomBuilder withLedLamp(LedLamp ledLamp) {
         this.ledLamp = ledLamp;
@@ -25,7 +33,13 @@ public class RoomBuilder {
         return this;
     }
 
+    // lekka gimnastyka, żeby nie tworzyć osobnego buildera dla każdego Rooma
     public IRoom build() {
-        return new IRoom(ledLamp, speaker, thermostat);
+        return switch (roomType) {
+            case BEDROOM -> new Bedroom(ledLamp, speaker, thermostat);
+            case KITCHEN -> new Kitchen(ledLamp, speaker, thermostat);
+            case LIVINGROOM -> new LivingRoom(ledLamp, speaker, thermostat);
+            case OFFICE -> new Office(ledLamp, speaker, thermostat);
+        };
     }
 }
