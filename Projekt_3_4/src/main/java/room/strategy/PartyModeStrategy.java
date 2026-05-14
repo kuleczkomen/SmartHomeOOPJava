@@ -1,10 +1,9 @@
 package room.strategy;
 
 import place.House;
-import room.model.Kitchen;
 import room.model.LivingRoom;
 
-public class PartyModeStrategy implements IScenarioStrategy {
+public class PartyModeStrategy extends AScenarioStrategy {
     @Override
     public void useScenario(House house) {
         house.getGroundFloor().switchOnEverything();
@@ -13,5 +12,7 @@ public class PartyModeStrategy implements IScenarioStrategy {
         LivingRoom livingRoom = house.getGroundFloor().getLivingRoom();
         int maxVolInLivingRoom = house.getMaxVolumeIn(livingRoom);
         house.setVolumeIn(livingRoom, maxVolInLivingRoom);
+
+        sendReport();
     }
 }
