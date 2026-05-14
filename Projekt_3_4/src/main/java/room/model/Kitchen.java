@@ -1,0 +1,14 @@
+package room.model;
+
+import device.LedLamp;
+import device.Speaker;
+import device.Thermostat;
+
+public class Kitchen extends ARoom {
+
+    public Kitchen(LedLamp ledLamp, Speaker speaker, Thermostat thermostat) {
+        this.ledLamp = ledLamp;
+        this.speaker = speaker;
+        this.thermostat = thermostat;
+    }
+}

@@ -1,4 +1,4 @@
-package room;
+package room.model;
 
 public enum RoomType {
     BEDROOM,

@@ -1,5 +1,7 @@
 package place;
 
+import room.model.IRoom;
+
 public class House implements IPlace {
 
     private final GroundFloor groundFloor;
@@ -21,5 +23,38 @@ public class House implements IPlace {
     public void switchOffEverything() {
         groundFloor.switchOffEverything();
         firstFloor.switchOffEverything();
+    }
+
+    @Override
+    public void switchOffAllSpeakers() {
+        groundFloor.switchOffAllSpeakers();
+        firstFloor.switchOffAllSpeakers();
+    }
+
+    @Override
+    public void switchOffAllLights() {
+        groundFloor.switchOffAllLights();
+        firstFloor.switchOffAllLights();
+    }
+
+    @Override
+    public void switchOffAllThermostats() {
+        groundFloor.switchOffAllThermostats();
+        firstFloor.switchOffAllThermostats();
+    }
+
+    public GroundFloor getGroundFloor() {
+        return groundFloor;
+    }
+
+    public FirstFloor getFirstFloor() {
+        return firstFloor;
+    }
+
+    public int getMaxVolumeIn(IRoom room) {
+        return room.getSpeaker().getMaxVolume();
+    }
+    public void setVolumeIn(IRoom room, int volume) {
+        room.getSpeaker().setVolume(volume);
     }
 }

@@ -1,8 +1,8 @@
 package room.factory;
 
-import room.IRoom;
+import room.model.IRoom;
 import room.builder.RoomBuilder;
-import room.RoomType;
+import room.model.RoomType;
 
 public class LivingRoomFactory implements IRoomFactory{
     @Override

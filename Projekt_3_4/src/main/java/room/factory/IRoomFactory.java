@@ -1,6 +1,6 @@
 package room.factory;
 
-import room.IRoom;
+import room.model.IRoom;
 
 public interface IRoomFactory {
 

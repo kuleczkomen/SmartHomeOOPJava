@@ -1,17 +1,17 @@
 package place;
 
-import room.Bedroom;
-import room.Office;
+import room.model.Bedroom;
+import room.model.Office;
 
 
 public class FirstFloor implements IPlace {
 
     private final Bedroom bedroom;
-    private final Office ofiice;
+    private final Office office;
 
-    public FirstFloor(Bedroom bedroom, Office ofiice) {
+    public FirstFloor(Bedroom bedroom, Office office) {
         this.bedroom = bedroom;
-        this.ofiice = ofiice;
+        this.office = office;
     }
 
     @Override
@@ -22,5 +22,19 @@ public class FirstFloor implements IPlace {
     @Override
     public void switchOffEverything() {
 
+    }
+
+    @Override
+    public void switchOffAllSpeakers() {
+        bedroom.getSpeaker().switchOff();
+        office.getSpeaker().switchOff();
+    }
+
+    public Bedroom getBedroom() {
+        return bedroom;
+    }
+
+    public Office getOffice() {
+        return office;
     }
 }

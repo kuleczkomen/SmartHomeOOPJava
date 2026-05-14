@@ -41,4 +41,8 @@ public class Speaker implements IDevice {
     public void setMaxVolume(int newMaxVolume) {
         maxVolume = newMaxVolume;
     }
+
+    public int getMaxVolume() {
+        return maxVolume;
+    }
 }
