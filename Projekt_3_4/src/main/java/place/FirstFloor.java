@@ -1,15 +1,15 @@
 package place;
 
 import room.Bedroom;
-import room.Ofiice;
+import room.Office;
 
 
 public class FirstFloor implements IPlace {
 
     private final Bedroom bedroom;
-    private final Ofiice ofiice;
+    private final Office ofiice;
 
-    public FirstFloor(Bedroom bedroom, Ofiice ofiice) {
+    public FirstFloor(Bedroom bedroom, Office ofiice) {
         this.bedroom = bedroom;
         this.ofiice = ofiice;
     }

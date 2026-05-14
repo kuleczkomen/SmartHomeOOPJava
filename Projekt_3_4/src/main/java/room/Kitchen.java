@@ -13,6 +13,11 @@ public class Kitchen implements IRoom{
     private Speaker speaker;
     private Thermostat thermostat;
 
+    public Kitchen(LedLamp ledLamp, Speaker speaker, Thermostat thermostat) {
+        this.lamp = ledLamp;
+        this.speaker = speaker;
+        this.thermostat = thermostat;
+    }
 
     @Override
     public void setLedLamp(LedLamp ledLamp) {
