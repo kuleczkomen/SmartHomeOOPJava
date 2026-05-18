@@ -6,5 +6,9 @@ public class Main {
         var adapter = new LegacySecureNetFacade();
         adapter.armAlarm();
         adapter.checkSmokeSensor();
+
+        for(int hour = 0; hour < 24; hour++) {
+
+        }
     }
 }

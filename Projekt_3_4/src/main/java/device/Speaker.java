@@ -1,6 +1,6 @@
 package device;
 
-public class Speaker implements IDevice {
+public class Speaker implements ISpeaker {
 
     private int volume;
     private int maxVolume;
@@ -14,13 +14,13 @@ public class Speaker implements IDevice {
     @Override
     public void switchOn() {
         isOn = true;
-        IO.println("ON");
+        IO.println("Speaker ON");
     }
 
     @Override
     public void switchOff() {
         isOn = false;
-        IO.println("OFF");
+        IO.println("Speaker OFF");
     }
 
     @Override
@@ -28,6 +28,7 @@ public class Speaker implements IDevice {
         return isOn;
     }
 
+    @Override
     public void setVolume(int newVolume) {
         if(!isOn) {
             IO.println("Error: Can't change device parameter when it's off");
@@ -38,6 +39,7 @@ public class Speaker implements IDevice {
         }
     }
 
+    @Override
     public void setMaxVolume(int newMaxVolume) {
         maxVolume = newMaxVolume;
     }

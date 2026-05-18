@@ -2,7 +2,7 @@ package room.builder;
 
 import device.LedLamp;
 import device.Speaker;
-import device.Thermostat;
+import device.thermostat.Thermostat;
 import room.model.*;
 
 public class RoomBuilder {

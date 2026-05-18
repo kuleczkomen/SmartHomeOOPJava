@@ -10,9 +10,16 @@ public abstract class AScenarioStrategy {
     protected int startHour;
     protected List<Integer> scenarioDays;
 
-    abstract void useScenario(House house);
+    public final void runScenario(House house) {
+        useScenario(house);
+        sendReport();
+    }
 
-    protected void sendReport() {
-        IO.println("Na email %s wysysłano raport...".formatted(email));
+    protected abstract void useScenario(House house);
+
+    private void sendReport() {
+        if(email != null) {
+            IO.println("Na email %s wysysłano raport...".formatted(email));
+        }
     }
 }

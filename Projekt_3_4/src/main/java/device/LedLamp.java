@@ -7,13 +7,13 @@ public class LedLamp implements IDevice {
     @Override
     public void switchOn() {
         isOn = true;
-        IO.println("ON");
+        IO.println("Lamp ON");
     }
 
     @Override
     public void switchOff() {
         isOn = false;
-        IO.println("OFF");
+        IO.println("Lamp OFF");
     }
 
     @Override
