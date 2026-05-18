@@ -1,8 +1,8 @@
-package secureNetLegacyApi.adapter;
+package secureNetLegacyApi.facade;
 
 import secureNetLegacyApi.*;
 
-public class LegacySecureNetAdapter implements ISecuritySystem {
+public class LegacySecureNetFacade implements ISecuritySystem {
 
     private String ipAddress = "192.168.1.100";
     private int port = 9090;
@@ -10,16 +10,12 @@ public class LegacySecureNetAdapter implements ISecuritySystem {
     private String username = "admin";
     private String pin = "1234";
 
-    PacketBuilder packetBuilder = new PacketBuilder();
-
-
     private void run(byte b1, byte b2) {
 
-        ConnectionNode connectionNode;
-        SessionToken token;
+        ConnectionNode connectionNode = new ConnectionNode(ipAddress, port);
+        SessionToken token = null;
 
         try {
-            ConnectionNode connectionNode = new ConnectionNode(ipAddress, port);
             connectionNode.handshake();
 
             String hash = CryptoHelper.hash(username, pin);
