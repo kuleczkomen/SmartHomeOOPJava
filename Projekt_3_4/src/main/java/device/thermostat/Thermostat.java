@@ -1,6 +1,6 @@
-package device;
+package device.thermostat;
 
-public class Thermostat implements IDevice {
+public class Thermostat implements IThermostat {
 
     private int temp;
     private boolean isOn = true;
@@ -12,13 +12,13 @@ public class Thermostat implements IDevice {
     @Override
     public void switchOn() {
         isOn = true;
-        IO.println("ON");
+        IO.println("Thermostat ON");
     }
 
     @Override
     public void switchOff() {
         isOn = false;
-        IO.println("OFF");
+        IO.println("Thermostat OFF");
     }
 
     @Override
@@ -26,6 +26,7 @@ public class Thermostat implements IDevice {
         return isOn;
     }
 
+    @Override
     public void setTemp(int newTemp) {
         if(!isOn) {
             IO.println("Error: Can't change device parameter when it's off");
