@@ -27,6 +27,11 @@ public class Thermostat implements IThermostat {
     }
 
     @Override
+    public String getInfo() {
+        return "Termostat ThermoPro";
+    }
+
+    @Override
     public void setTemp(int newTemp) {
         if(!isOn) {
             IO.println("Error: Can't change device parameter when it's off");

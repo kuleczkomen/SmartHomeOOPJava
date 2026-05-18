@@ -29,6 +29,11 @@ public class Speaker implements ISpeaker {
     }
 
     @Override
+    public String getInfo() {
+        return "Głośnik Multiroom SoundMax";
+    }
+
+    @Override
     public void setVolume(int newVolume) {
         if(!isOn) {
             IO.println("Error: Can't change device parameter when it's off");
