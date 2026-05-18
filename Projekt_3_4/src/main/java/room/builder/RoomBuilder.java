@@ -37,7 +37,7 @@ public class RoomBuilder {
         return this;
     }
 
-    // lekka gimnastyka, żeby nie tworzyć osobnego buildera dla każdego Rooma
+    // dzięki temu switchowi nie trzeba tworzyć osobnego buildera dla każdego Rooma
     public IRoom build() {
         return switch (roomType) {
             case BEDROOM -> new Bedroom(ledLamp, speaker, thermostat);
