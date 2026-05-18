@@ -20,4 +20,9 @@ public class LedLamp implements IDevice {
     public boolean isOn() {
         return isOn;
     }
+
+    @Override
+    public String getInfo() {
+        return "Żarówka LED SmartGlow";
+    }
 }
