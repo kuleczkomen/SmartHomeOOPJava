@@ -13,8 +13,19 @@ public class DetailedAuditDeviceDecator extends DeviceDecorator{
         this.hour = hour;
     }
 
+    private void auditLog() {
+        IO.println("[Dzień] %d | [Godzina] %d:00 | %s".formatted(day, hour, super.getInfo()));
+    }
+
     @Override
     public void switchOn() {
-        IO.println("[Dzień] %d | [Godzina] %d:00 %s".formatted(day, hour, super.getInfo()));
+        auditLog();
+        super.switchOn();
+    }
+
+    @Override
+    public void switchOff() {
+        auditLog();
+        super.switchOff();
     }
 }

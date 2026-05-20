@@ -1,7 +1,7 @@
 package room.model;
 
 import device.LedLamp;
-import device.Speaker;
+import device.speaker.Speaker;
 import device.thermostat.Thermostat;
 
 public abstract class ARoom implements IRoom {

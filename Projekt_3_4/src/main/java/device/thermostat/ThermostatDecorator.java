@@ -27,4 +27,9 @@ public class ThermostatDecorator implements IThermostat{
     public boolean isOn() {
         return inner.isOn();
     }
+
+    @Override
+    public String getInfo() {
+        return inner.getInfo();
+    }
 }

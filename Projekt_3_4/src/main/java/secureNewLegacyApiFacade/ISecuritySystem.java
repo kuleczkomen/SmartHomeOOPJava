@@ -1,4 +1,4 @@
-package secureNetLegacyApi.facade;
+package secureNewLegacyApiFacade;
 
 public interface ISecuritySystem {
     void armAlarm();
