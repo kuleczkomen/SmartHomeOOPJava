@@ -5,11 +5,11 @@ import room.builder.RoomBuilder;
 import room.model.Kitchen;
 import room.model.RoomType;
 
-public class KitchenFactory implements IRoomFactory {
+public class KitchenFactory implements IRoomFactory<Kitchen> {
 
     @Override
     public Kitchen createRoom() {
-        return (Kitchen) new RoomBuilder(RoomType.KITCHEN)
+        return new RoomBuilder<>(Kitchen::new)
                 .build();
     }
 }
