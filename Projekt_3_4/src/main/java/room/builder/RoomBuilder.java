@@ -3,10 +3,11 @@ package room.builder;
 import device.LedLamp;
 import device.model.Speaker;
 import device.model.Thermostat;
-import place.Corridor;
 import room.model.*;
 
-public class RoomBuilder {
+public class RoomBuilder<T extends IRoom> {
+
+    private final RoomConstructor<T> constructor;
 
     private LedLamp ledLamp = new LedLamp();
 
@@ -17,10 +18,9 @@ public class RoomBuilder {
     private int temp = 20;
     private Thermostat thermostat = new Thermostat(temp);
 
-    private final RoomType roomType;
 
-    public RoomBuilder(RoomType roomType) {
-        this.roomType = roomType;
+    public RoomBuilder(RoomConstructor<T> constructor) {
+        this.constructor = constructor;
     }
 
     public RoomBuilder withVolume(int volume) {
@@ -38,14 +38,7 @@ public class RoomBuilder {
         return this;
     }
 
-    // dzięki temu switchowi nie trzeba tworzyć osobnego buildera dla każdego Rooma
-    public IRoom build() {
-        return switch (roomType) {
-            case BEDROOM -> new Bedroom(ledLamp, speaker, thermostat);
-            case KITCHEN -> new Kitchen(ledLamp, speaker, thermostat);
-            case LIVINGROOM -> new LivingRoom(ledLamp, speaker, thermostat);
-            case OFFICE -> new Office(ledLamp, speaker, thermostat);
-            case CORRIDOR -> new Corridor(ledLamp, speaker, thermostat);
-        };
+    public T build() {
+        return constructor.create(ledLamp, speaker, thermostat);
     }
 }

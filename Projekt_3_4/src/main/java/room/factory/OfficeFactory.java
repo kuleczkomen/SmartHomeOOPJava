@@ -5,10 +5,10 @@ import room.builder.RoomBuilder;
 import room.model.Office;
 import room.model.RoomType;
 
-public class OfficeFactory implements IRoomFactory{
+public class OfficeFactory implements IRoomFactory<Office>{
     @Override
     public Office createRoom() {
-        return (Office) new RoomBuilder(RoomType.OFFICE)
+        return new RoomBuilder<>(Office::new)
                 .build();
     }
 }

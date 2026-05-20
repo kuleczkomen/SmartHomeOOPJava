@@ -2,12 +2,13 @@ package room.factory;
 
 import place.Corridor;
 import room.builder.RoomBuilder;
+import room.model.Bedroom;
 import room.model.RoomType;
 
-public class CorridorFactory implements IRoomFactory {
+public class CorridorFactory implements IRoomFactory<Corridor> {
     @Override
     public Corridor createRoom() {
-        return (Corridor) new RoomBuilder(RoomType.CORRIDOR)
+        return new RoomBuilder<>(Corridor::new)
                 .build();
     }
 }
