@@ -12,6 +12,8 @@ public class StaraNokia implements IPhone {
             this.camera = new FrontCamera();
             this.batteryState = 3000;
         }
+public class StaraNokia implements Phone, BatteryDevice {
+    private int batteryPercentage = 100;
 
     @Override
     public void call(String number) {
@@ -45,11 +47,13 @@ public class StaraNokia implements IPhone {
         }
 
 
+    public void chargeWithPin() {
+        setBattery(batteryPercentage + 30);
     }
 
     @Override
-    public void connectTo5G() {
-        throw new UnsupportedOperationException("Błąd: 5G w 2000 roku? Zapomnij.");
+    public int getBattery() {
+        return batteryPercentage;
     }
 
     @Override
@@ -71,5 +75,7 @@ public class StaraNokia implements IPhone {
         } else {
             System.out.println("Nieobsługiwana ładowarka!");
         }
+    public void setBattery(int battery) {
+        batteryPercentage = battery;
     }
 }
