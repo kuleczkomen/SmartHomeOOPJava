@@ -1,7 +1,5 @@
 package device.model;
 
-import room.strategy.thermostat.IThermostatStrategy;
-
 public class Thermostat implements IThermostat {
 
     private int temp;
