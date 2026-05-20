@@ -1,13 +1,14 @@
-package device.decorator;
+package device.decorator.led;
 
-import device.IDevice;
-import device.ISleepModeBehaviour;
+import device.decorator.device.DeviceDecorator;
+import device.decorator.device.ISleepModeBehaviour;
+import device.model.IDevice;
 
-public class SleepModeDeviceDecorator extends DeviceDecorator implements ISleepModeBehaviour {
+public class SleepModeLedDecorator extends DeviceDecorator implements ISleepModeBehaviour {
 
     private int hour;
 
-    public SleepModeDeviceDecorator(IDevice device, int hour) {
+    public SleepModeLedDecorator(IDevice device, int hour) {
         super(device);
         this.hour = hour;
     }
@@ -22,10 +23,14 @@ public class SleepModeDeviceDecorator extends DeviceDecorator implements ISleepM
         hour = newHour;
     }
 
+    private String sleepModeMesaage() {
+        return "Tryb spania [blokuję działanie]...";
+    }
+
     @Override
     public void switchOn() {
         if(isSleepTimeNow()) {
-            IO.println("Tryb spania...");
+            IO.println(sleepModeMesaage());
         } else {
             super.switchOn();
         }
@@ -34,7 +39,7 @@ public class SleepModeDeviceDecorator extends DeviceDecorator implements ISleepM
     @Override
     public void switchOff() {
         if(isSleepTimeNow()) {
-            IO.println("Tryb spania...");
+            IO.println(sleepModeMesaage());
         } else {
             super.switchOff();
         }

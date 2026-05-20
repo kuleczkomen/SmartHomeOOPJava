@@ -1,5 +1,7 @@
 package device;
 
+import device.model.IDevice;
+
 public class LedLamp implements IDevice {
 
     private boolean isOn = true;

@@ -1,4 +1,4 @@
-package device;
+package device.model;
 
 public interface IDevice {
 

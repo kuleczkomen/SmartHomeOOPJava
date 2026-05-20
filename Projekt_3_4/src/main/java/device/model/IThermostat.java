@@ -1,6 +1,4 @@
-package device.thermostat;
-
-import device.IDevice;
+package device.model;
 
 public interface IThermostat extends IDevice {
     void setTemp(int newTemp);

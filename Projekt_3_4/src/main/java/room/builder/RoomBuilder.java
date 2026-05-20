@@ -1,8 +1,8 @@
 package room.builder;
 
 import device.LedLamp;
-import device.speaker.Speaker;
-import device.thermostat.Thermostat;
+import device.model.Speaker;
+import device.model.Thermostat;
 import place.Corridor;
 import room.model.*;
 

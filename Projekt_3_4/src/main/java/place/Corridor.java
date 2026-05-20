@@ -2,8 +2,8 @@ package place;
 
 
 import device.LedLamp;
-import device.speaker.Speaker;
-import device.thermostat.Thermostat;
+import device.model.Speaker;
+import device.model.Thermostat;
 import room.model.ARoom;
 
 // jest tak po środku (na półpiętrze) hehe

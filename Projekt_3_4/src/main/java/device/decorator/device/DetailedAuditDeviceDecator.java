@@ -1,6 +1,6 @@
-package device.decorator;
+package device.decorator.device;
 
-import device.IDevice;
+import device.model.IDevice;
 
 public class DetailedAuditDeviceDecator extends DeviceDecorator{
 
