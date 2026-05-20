@@ -52,4 +52,6 @@ public class Speaker implements ISpeaker {
     public int getMaxVolume() {
         return maxVolume;
     }
+
+    public int getVolume() { return  volume; }
 }

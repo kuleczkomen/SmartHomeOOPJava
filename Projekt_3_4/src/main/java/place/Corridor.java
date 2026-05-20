@@ -1,6 +1,9 @@
 package place;
 
 
+import device.LedLamp;
+import device.speaker.Speaker;
+import device.thermostat.Thermostat;
 import room.model.ARoom;
 
 // jest tak po środku (na półpiętrze) hehe
@@ -8,6 +11,13 @@ import room.model.ARoom;
 // oraz ma swoje urządzenia
 
 public class Corridor extends ARoom implements IPlace {
+
+    public Corridor(LedLamp ledLamp, Speaker speaker, Thermostat thermostat) {
+        this.ledLamp = ledLamp;
+        this.speaker = speaker;
+        this.thermostat = thermostat;
+    }
+
     @Override
     public void switchOnEverything() {
         ledLamp.switchOn();

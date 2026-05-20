@@ -3,6 +3,7 @@ package room.builder;
 import device.LedLamp;
 import device.speaker.Speaker;
 import device.thermostat.Thermostat;
+import place.Corridor;
 import room.model.*;
 
 public class RoomBuilder {
@@ -44,6 +45,7 @@ public class RoomBuilder {
             case KITCHEN -> new Kitchen(ledLamp, speaker, thermostat);
             case LIVINGROOM -> new LivingRoom(ledLamp, speaker, thermostat);
             case OFFICE -> new Office(ledLamp, speaker, thermostat);
+            case CORRIDOR -> new Corridor(ledLamp, speaker, thermostat);
         };
     }
 }
