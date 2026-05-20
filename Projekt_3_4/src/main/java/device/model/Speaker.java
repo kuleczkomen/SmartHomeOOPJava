@@ -1,4 +1,4 @@
-package device.speaker;
+package device.model;
 
 public class Speaker implements ISpeaker {
 

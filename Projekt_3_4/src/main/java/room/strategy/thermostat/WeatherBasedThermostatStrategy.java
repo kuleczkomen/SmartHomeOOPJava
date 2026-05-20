@@ -1,10 +1,13 @@
-package device.thermostat;
+package room.strategy.thermostat;
 
-public class WeatherBasedThermostatDecorator extends ThermostatDecorator{
+import device.model.Thermostat;
+import device.decorator.thermostat.ThermostatDecorator;
+
+public class WeatherBasedThermostatStrategy extends ThermostatDecorator {
 
     private int tempOutside;
 
-    public WeatherBasedThermostatDecorator(Thermostat thermostat, int temp) {
+    public WeatherBasedThermostatStrategy(Thermostat thermostat, int temp) {
         super(thermostat);
         tempOutside = temp;
     }

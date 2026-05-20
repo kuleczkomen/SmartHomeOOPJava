@@ -1,4 +1,6 @@
-package device.speaker;
+package device.decorator.speaker;
+
+import device.model.ISpeaker;
 
 public class SpeakerDecorator implements ISpeaker {
 

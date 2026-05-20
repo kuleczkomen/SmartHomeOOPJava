@@ -1,4 +1,4 @@
-package device;
+package device.decorator.device;
 
 
 // żeby nie powtarzać kodu i zabezpieczyć się przed pomyłkami...

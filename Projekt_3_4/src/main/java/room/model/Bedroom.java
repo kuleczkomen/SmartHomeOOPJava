@@ -1,8 +1,8 @@
 package room.model;
 
 import device.LedLamp;
-import device.speaker.Speaker;
-import device.thermostat.Thermostat;
+import device.model.Speaker;
+import device.model.Thermostat;
 
 public class Bedroom extends ARoom{
 

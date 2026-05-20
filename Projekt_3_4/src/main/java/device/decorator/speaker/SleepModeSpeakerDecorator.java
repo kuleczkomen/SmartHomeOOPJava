@@ -1,6 +1,7 @@
-package device.speaker;
+package device.decorator.speaker;
 
-import device.ISleepModeBehaviour;
+import device.decorator.device.ISleepModeBehaviour;
+import device.model.ISpeaker;
 
 public class SleepModeSpeakerDecorator extends SpeakerDecorator implements ISleepModeBehaviour {
 

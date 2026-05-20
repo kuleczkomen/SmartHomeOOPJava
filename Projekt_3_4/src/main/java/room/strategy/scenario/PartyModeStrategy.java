@@ -1,4 +1,4 @@
-package room.strategy;
+package room.strategy.scenario;
 
 import place.House;
 import room.model.LivingRoom;

@@ -1,6 +1,4 @@
-package device.speaker;
-
-import device.IDevice;
+package device.model;
 
 public interface ISpeaker extends IDevice {
     void setVolume(int newVolume);

@@ -1,16 +1,13 @@
-package device.thermostat;
+package device.decorator.device;
 
-public class ThermostatDecorator implements IThermostat{
+import device.model.IDevice;
 
-    private Thermostat inner;
+public class DeviceDecorator implements IDevice {
 
-    public ThermostatDecorator(Thermostat thermostat) {
-        this.inner = thermostat;
-    }
+    private IDevice inner;
 
-    @Override
-    public void setTemp(int newTemp) {
-        inner.setTemp(newTemp);
+    public DeviceDecorator(IDevice device) {
+        inner = device;
     }
 
     @Override

@@ -1,12 +1,19 @@
-package device.thermostat;
+package device.model;
+
+import room.strategy.thermostat.IThermostatStrategy;
 
 public class Thermostat implements IThermostat {
 
     private int temp;
     private boolean isOn = true;
+    private IThermostatStrategy strategy;
 
     public Thermostat(int temp) {
         this.temp = temp;
+    }
+
+    public void setStrategy(IThermostatStrategy strategy) {
+        this.strategy = strategy;
     }
 
     @Override
@@ -38,5 +45,9 @@ public class Thermostat implements IThermostat {
         } else {
             temp = newTemp;
         }
+    }
+
+    public int getTemp() {
+        return temp;
     }
 }

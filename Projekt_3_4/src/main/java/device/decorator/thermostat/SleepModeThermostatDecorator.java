@@ -1,6 +1,8 @@
-package device.thermostat;
+package device.decorator.thermostat;
 
-import device.ISleepModeBehaviour;
+import device.decorator.device.ISleepModeBehaviour;
+import device.decorator.ThermostatDecorator;
+import device.model.Thermostat;
 
 public class SleepModeThermostatDecorator extends ThermostatDecorator implements ISleepModeBehaviour {
 
