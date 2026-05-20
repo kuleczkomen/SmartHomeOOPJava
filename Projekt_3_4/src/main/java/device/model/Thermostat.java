@@ -1,16 +1,18 @@
 package device.model;
 
+import room.strategy.thermostat.AThermostatStrategy;
+
 public class Thermostat implements IThermostat {
 
     private int temp;
     private boolean isOn = true;
-    private IThermostatStrategy strategy;
+    private AThermostatStrategy strategy;
 
     public Thermostat(int temp) {
         this.temp = temp;
     }
 
-    public void setStrategy(IThermostatStrategy strategy) {
+    public void setStrategy(AThermostatStrategy strategy) {
         this.strategy = strategy;
     }
 

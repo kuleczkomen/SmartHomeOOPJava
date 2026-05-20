@@ -5,13 +5,21 @@ import java.util.List;
 public class ScenarioBuilder {
 
     private final String name;
-    private final String email;
+    private String email;
     private int startHour;
-    private List<Integer> scenarioDays;
+    private final List<Integer> scenarioDays;
 
-    public ScenarioBuilder(String name, String email) {
+    private final ScenarioType type;
+
+    public ScenarioBuilder(ScenarioType type, String name, List<Integer> scenarioDays) {
         this.name = name;
+        this.type = type;
+        this.scenarioDays = scenarioDays;
+    }
+
+    public ScenarioBuilder withEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public ScenarioBuilder withStartHour(int startHour) {
@@ -19,11 +27,10 @@ public class ScenarioBuilder {
         return this;
     }
 
-    public ScenarioBuilder withScenarioDays(List<Integer> scenarioDays) {
-        this.scenarioDays = scenarioDays;
-    }
-
     public AScenarioStrategy build() {
-        return
+        return switch (type) {
+            case PARTY_MODE -> new PartyModeStrategy(name, email, startHour, scenarioDays);
+            case EVENING_AUDIT -> new EveningAuditStrategy(name, email, startHour, scenarioDays);
+        };
     }
 }

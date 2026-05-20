@@ -13,6 +13,9 @@ public class DayNightThermostatStrategy extends AThermostatStrategy {
         this.hour = hour;
     }
 
+    public void setHour(int newHour) {
+        hour = newHour;
+    }
 
     @Override
     public void setTemperature() {
