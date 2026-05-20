@@ -8,8 +8,8 @@ import room.model.RoomType;
 public class KitchenFactory implements IRoomFactory {
 
     @Override
-    public IRoom createRoom() {
-        return new RoomBuilder(RoomType.KITCHEN)
+    public Kitchen createRoom() {
+        return (Kitchen) new RoomBuilder(RoomType.KITCHEN)
                 .build();
     }
 }

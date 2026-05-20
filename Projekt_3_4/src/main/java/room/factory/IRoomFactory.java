@@ -2,11 +2,7 @@ package room.factory;
 
 import room.model.IRoom;
 
-public interface IRoomFactory {
+public interface IRoomFactory<T extends IRoom> {
 
-    IRoom createRoom();
-
-    default void setupRoom() {
-        IRoom room = createRoom();
-    }
+    T createRoom();
 }
