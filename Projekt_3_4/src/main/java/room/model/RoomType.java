@@ -4,5 +4,6 @@ public enum RoomType {
     BEDROOM,
     KITCHEN,
     LIVINGROOM,
-    OFFICE
+    OFFICE,
+    CORRIDOR
 }
