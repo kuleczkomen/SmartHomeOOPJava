@@ -2,7 +2,7 @@ package room.strategy.thermostat;
 
 import device.model.Thermostat;
 
-public abstract class AThermostatStrategy {
+public abstract class AThermostatStrategy implements IThermostatStrategy{
 
     protected Thermostat thermostat;
 
@@ -10,5 +10,4 @@ public abstract class AThermostatStrategy {
         this.thermostat = thermostat;
     }
 
-    public abstract void setTemperature();
 }

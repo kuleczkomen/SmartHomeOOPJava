@@ -6,6 +6,8 @@ import command.SwitchAllSpeakersCommand;
 import device.model.IDevice;
 import device.decorator.device.DetailedAuditDeviceDecator;
 import device.decorator.speaker.SleepModeSpeakerDecorator;
+import room.strategy.scenario.ScenarioBuilder;
+import room.strategy.scenario.ScenarioType;
 import room.strategy.thermostat.DayNightThermostatStrategy;
 import place.Corridor;
 import place.FirstFloor;
@@ -20,6 +22,8 @@ import room.model.Office;
 import room.strategy.scenario.EveningAuditStrategy;
 import room.strategy.scenario.PartyModeStrategy;
 import secureNewLegacyApiFacade.LegacySecureNetFacade;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -45,11 +49,16 @@ public class Main {
 
         // wywołanie scenariuszy
         System.out.println("--- AUDYT ---");
-        var eveningAudit = new EveningAuditStrategy();
+        var eveningAudit = new ScenarioBuilder(ScenarioType.EVENING_AUDIT, "Niedzielny audyt", List.of(7))
+                .build();
         eveningAudit.runScenario(house);
 
         System.out.println("--- PARTY ---");
-        var partyMode = new PartyModeStrategy();
+        var partyMode = new ScenarioBuilder(ScenarioType.PARTY_MODE, "Impra na dzielni", List.of())
+                .withEmail("qwe@gmail.com")
+                .withStartHour(0)
+                .build();
+
         partyMode.runScenario(house);
 
         // test komendy
@@ -78,13 +87,13 @@ public class Main {
                 sleepSpeaker.switchOff();
 
                 dayNightThermostat.setHour(hour);
-                dayNightThermostat.setAutoTemp();
+                dayNightThermostat.setTemperature();
                 System.out.println("Tempratura o %d:00: %d".formatted(hour, corridor.getThermostat().getTemp()));
             }
 
             if(hour == 12) {
                 dayNightThermostat.setHour(hour);
-                dayNightThermostat.setAutoTemp();
+                dayNightThermostat.setTemperature();
                 System.out.println("Tempratura o %d:00: %d".formatted(hour, corridor.getThermostat().getTemp()));
             }
             if(hour == 23) {
