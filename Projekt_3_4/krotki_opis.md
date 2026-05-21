@@ -6,3 +6,4 @@
 * ```Kompozyt``` - drzewiasta struktura domu - tworzą ją dom, piętra, pomieszczenia i urządzenia
 * ```Dekorator``` - tryb audytu i spania dla urządzeń - klasy w pakiecie **device.decorator**
 * ```Komenda``` - klasy **ICommand** oraz **CommandRunner**
+* ```Fasada``` - klasy **ISecuritySysten** i **LegacySecureNetFacade**
