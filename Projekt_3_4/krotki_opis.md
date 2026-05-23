@@ -1,5 +1,6 @@
 # Użycie wzorców projektowych:
 
+
 * ```Builder``` - tworzenie różnych typów pokoju (**IRoom**) - klasa **RoomBuilder**
 * ```Factory``` - dodanie logiki dla różnych pokojów w trakcie ich tworzenia - klasa **IRoomFactory**
 * ```Strategia``` - tworzenie scenariuszy dla mieszkań oraz trybów termostatu. Nie można użyć w termostacie dekoratora, ponieważ tryby chcą ustawiać różne temperatury - klasy **IScenarioStrategy** oraz **IthermostatStrategy**
