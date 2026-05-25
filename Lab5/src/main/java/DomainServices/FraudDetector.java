@@ -1,4 +1,4 @@
-﻿package DomainServices;
+package DomainServices;
 
 import LilKlaski.User;
 

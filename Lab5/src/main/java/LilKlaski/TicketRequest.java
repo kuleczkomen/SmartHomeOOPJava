@@ -1,4 +1,4 @@
-﻿package LilKlaski;
+package LilKlaski;
 
 public class TicketRequest {
     private double price;
