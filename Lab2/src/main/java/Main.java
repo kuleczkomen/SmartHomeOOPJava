@@ -1,7 +1,3 @@
-import cameras.PhoneCamerasManager;
-import cameras.types.Sony;
-import internet.Internet;
-import phones.GPS;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,28 +12,18 @@ public class Main {
         System.out.println("Bateria po rozmowie: " + oldPhone.batteryPercentage + "%");
 
         oldPhone.sendSms("+48123456789", "Hej!");
-        System.out.println("Bateria po SMS: " + oldPhone.batteryState + "%");
-        System.out.println("Bateria: " + oldPhone.getBattery() + "%");
-
-        oldPhone.call("+48123456789");
-        System.out.println("Bateria po rozmowie: " + oldPhone.getBattery() + "%");
-
-        oldPhone.sendSms("+48123456789", "Hej!");
-        System.out.println("Bateria po SMS: " + oldPhone.getBattery() + "%");
+        System.out.println("Bateria po SMS: " + oldPhone.batteryPercentage + "%");
 
         // Próba wykonania nieobsługiwanej operacji
-        // NIE DA SIĘ
-//        try {
-//            oldPhone.takePhoto();
-//        } catch (UnsupportedOperationException e) {
-//            System.out.println("Wyjątek: " + e.getMessage());
-//        }
+        try {
+            oldPhone.takePhoto();
+        } catch (UnsupportedOperationException e) {
+            System.out.println("Wyjątek: " + e.getMessage());
+        }
 
         // Ladowanie
         oldPhone.charge("Pin");
-        System.out.println("Bateria po ladowaniu: " + oldPhone.batteryState + "%\n");
-        oldPhone.chargeWithPin();
-        System.out.println("Bateria po ladowaniu: " + oldPhone.getBattery() + "%\n");
+        System.out.println("Bateria po ladowaniu: " + oldPhone.batteryPercentage + "%\n");
 
         // Test 2: SuperPhone - podstawowe operacje
         System.out.println("--- Test 2: SuperPhone ---");
@@ -48,23 +34,15 @@ public class Main {
         System.out.println("Bateria po rozmowie: " + newPhone.batteryPercentage + "%");
 
         newPhone.sendSms("+48987654321", "Cześć SuperPhone!");
-        System.out.println("Bateria po SMS: " + newPhone.batterState + "%");
-        System.out.println("Bateria: " + newPhone.getBattery() + "%");
-
-        newPhone.call("+49123456789012");
-        System.out.println("Bateria po rozmowie: " + newPhone.getBattery() + "%");
-
-        newPhone.sendSms("+48987654321", "Cześć SuperPhone!");
-        System.out.println("Bateria po SMS: " + newPhone.getBattery() + "%");
+        System.out.println("Bateria po SMS: " + newPhone.batteryPercentage + "%");
 
         // Test 3: Zmiana aparatu i zrobienie zdjęcia
         System.out.println("\n--- Test 3: Aparaty ---");
         try {
-            PhoneCamerasManager manager = new PhoneCamerasManager(newPhone);
-            manager.setCamera(new Sony());
+            newPhone.setCamera("SONY");
             System.out.println("Aktywna kamera: SONY");
             // takePhoto testuje wartość "PRZEDNIA", ale aparatu się nie zmienia prawidłowo
-            manager.takePhoto();
+            newPhone.takePhoto();
         } catch (IllegalArgumentException e) {
             System.out.println("Błąd: " + e.getMessage());
         }
@@ -90,58 +68,25 @@ public class Main {
         // Zuzywanie baterii
         while (newPhone.batteryPercentage > 5) {
             newPhone.connectTo5G();
-            System.out.println("Bateria: " + newPhone.batterState + "%");
-        System.out.println("Bateria po zdjeciu: " + newPhone.getBattery() + "%");
-
-        // Test 4: Polaczenie 5G i przeglądanie internetu
-        System.out.println("\n--- Test 4: Funkcje nowoczesne ---");
-        Internet intenet = new Internet();
-        intenet.connectTo5G(newPhone);
-        System.out.println("Bateria po 5G: " + newPhone.getBattery() + "%");
-
-        intenet.browseInternet(newPhone);
-        System.out.println("Bateria po internecie: " + newPhone.
-                getBattery() + "%");
-
-        // Test 5: Backup (wykorzystuje GoogleDriveStorage)
-        System.out.println("\n--- Test 5: Backup ---");
-        intenet.backupPhotos(newPhone);
-        System.out.println("Bateria po backupie: " + newPhone.getBattery() + "%");
-
-        // Test 6: Testowanie limitu baterii
-        System.out.println("\n--- Test 6: Limit baterii ---");
-        System.out.println("Aktualna bateria: " + newPhone.getBattery() + "%");
-
-        // Zuzywanie baterii
-        while (newPhone.getBattery() > 5) {
-            intenet.connectTo5G(newPhone);
-            System.out.println("Bateria: " + newPhone.getBattery() + "%");
+            System.out.println("Bateria: " + newPhone.batteryPercentage + "%");
         }
 
-        // Proba operacji be baterii
+        // Proba operacji bez baterii
         System.out.println("Proba rozmowy bez baterii:");
         newPhone.call("+48123456789");
 
         // Ladowanie
         System.out.println("\nLadowanie SuperPhone...");
         newPhone.charge("Pin");
-        System.out.println("Bateria: " + newPhone.batterState + "%");
-        newPhone.chargeWithPin();
-        System.out.println("Bateria: " + newPhone.getBattery() + "%");
+        System.out.println("Bateria: " + newPhone.batteryPercentage + "%");
 
         // Test 7: Bledny typ kamery
         System.out.println("\n--- Test 7: Bledny typ kamery ---");
-        // NIE DA SIĘ
-//        try {
-//            PhoneCamerasManager manager = new PhoneCamerasManager(newPhone);
-//            manager.setCamera("INVALID");
-//        } catch (IllegalArgumentException e) {
-//            System.out.println("Wyjątek: " + e.getMessage());
-//        }
-
-        System.out.println("\n--- Test 8: Łączymy się z GPS ---");
-        newPhone.connectToGPS(new GPS());
-        System.out.println(newPhone.getPhoneLocation());
+        try {
+            newPhone.setCamera("INVALID");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Wyjątek: " + e.getMessage());
+        }
 
         System.out.println("\n=== KONIEC SMOKE TESTU ===");
     }
