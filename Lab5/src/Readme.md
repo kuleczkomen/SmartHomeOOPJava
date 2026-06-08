@@ -18,6 +18,10 @@ Nie oczekuje że zdążycie zaimplementować wszystko, także róbcie kroki w po
 3. **Drugie starcie:** Napiszcie testy dla metody `calculateFinalPrice()` w klasie `TicketService`.
 4. **Reszta:** Jeśli zostanie Wam czas, pokryjcie testami pozostałe elementy.
 
+### Do zrobienia w domu
+
+Bogatsi o nową wiedzę napiszcie testy do tego mini projektu testowego mając na uwadzę informację z prezentacji
+
 ### Narzędziówka (Co znajdziecie w projekcie)
 
 Do projektu zostały dorzucone świetne i sprawdzone na rynku biblioteki, które bardzo ułatwiają życie:

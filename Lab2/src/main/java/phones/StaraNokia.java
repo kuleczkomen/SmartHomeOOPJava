@@ -1,6 +1,6 @@
 package phones;
 
-import cameras.FrontCamera;
+import java.util.List;
 
 //Moze i nie umie za dużo
 //Ale się stara
@@ -17,9 +17,9 @@ public class StaraNokia implements Phone, BatteryDevice {
 
     @Override
     public void call(String number) {
-        if (batteryState > 100){
+        if (batteryPercentage > 5){
             System.out.println("Dzwonię z niezniszczalnej Nokii do: " + number);
-            batteryState -= 100;
+            batteryPercentage -= 5;
         }
         else {
             System.out.println("Bateria jest za słaba, aby zadzwonić!");
@@ -28,24 +28,21 @@ public class StaraNokia implements Phone, BatteryDevice {
 
     @Override
     public void sendSms(String number, String message) {
-        if (batteryState > 50) {
+        if (batteryPercentage > 3) {
             System.out.println("Wysyłam SMS do " + number + ": " + message);
-            batteryState -= 50;
+            batteryPercentage -= 3;
         } else {
             System.out.println("Bateria jest za słaba, aby wysłać SMS!");
         }
     }
 
     @Override
-    public void takePhoto() {
-        if (batteryState > 125){
-            camera.makeSelfie(30, 50);
-            batteryState -= 125;
-        }
-        else {
-            System.out.println("Bateria jest za słaba, aby wysłać SMS!");
-        }
+    public void chargeWithThinPin() {
 
+    }
+
+    @Override
+    public void connectToGPS(GPS gps) {
 
     public void chargeWithPin() {
         setBattery(batteryPercentage + 30);
@@ -56,20 +53,17 @@ public class StaraNokia implements Phone, BatteryDevice {
         return batteryPercentage;
     }
 
-    @Override
     public void browseInternet() {
         throw new UnsupportedOperationException("Błąd: Brak przeglądarki internetowej.");
     }
 
-    @Override
     public void backupPhotos() {
         throw new UnsupportedOperationException("XD no na pewno to zadziała tutaj");
     }
 
-    @Override
     public void charge(String chargerType) {
         if (chargerType.equals("Pin")) {
-            this.batteryState += 400;
+            this.batteryPercentage += 30;
         } else if (chargerType.equals("Thin-Pin")) {
             System.out.println("A tez nie wspieram");
         } else {
@@ -77,5 +71,14 @@ public class StaraNokia implements Phone, BatteryDevice {
         }
     public void setBattery(int battery) {
         batteryPercentage = battery;
+    }
+
+    public int getBattery() {
+        return 0;
+    }
+
+    @Override
+    public void setBattery(int battery) {
+
     }
 }

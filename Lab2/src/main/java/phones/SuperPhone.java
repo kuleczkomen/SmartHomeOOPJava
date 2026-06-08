@@ -10,10 +10,15 @@ public class SuperPhone implements IPhone, Phone {
     //być może nie aż tak potrzebny stan telefonu
     private final PhoneCamerasManager camerasManager;
 
-    public int batterState; //w Miliamperogodzinach (Mah)
+    //to w sumie dodalem na ostatnia chwile
+    //jestem ciekaw co z tym zrobicie xD
+    //warto wgl rozkminic czy to jak to zostalo zaimplementowane wgl ma sens
+    //np. czy to telefon powinien wiedzieć ile jest ładowany? Czy jednak coś innego winno to wiedzieć?
+    //public wedle zamyslu programisty (niezbyt rozgarnietego jak widac) jest dlatego ze baterie wyswietla sie na telefonie
+    public int batteryPercentage;
 
     public SuperPhone() {
-        this.batterState = 5000; //domyślnie pełna bateria
+        this.batteryPercentage = 100; //domyślnie pełna bateria
         this.frontCamera = new FrontCamera();
         this.backCamera = new BackCamera();
         this.wideAngleCamera = new WideAngleCamera();
@@ -63,7 +68,7 @@ public class SuperPhone implements IPhone, Phone {
     //SEKCJA Z DZWONIENIEM I SMSAMI
     @Override
     public void call(String number) {
-        if (batterState > 200) {
+        if (batteryPercentage > 8) {
             //Sprawdzanie czy numer jest poprawny
             if(checkPhoneNumber(number)) {
                 System.out.println("Dzwonię do: " + number);
@@ -71,7 +76,7 @@ public class SuperPhone implements IPhone, Phone {
             }
 
             System.out.println("Dzwonię do: " + number);
-            batterState -= 200;
+            batteryPercentage -= 8;
         } else {
             System.out.println("BŁĄD: Bateria jest za słaba, aby dzwonić!");
         }
@@ -79,7 +84,7 @@ public class SuperPhone implements IPhone, Phone {
 
     @Override
     public void sendSms(String number, String message) {
-        if (batterState > 100) {
+        if (batteryPercentage > 5) {
             //Copy paste kodu z wyżej
             //nie ma co sie produkować za dużo
             if (checkPhoneNumber(number)) {
@@ -108,40 +113,54 @@ public class SuperPhone implements IPhone, Phone {
             }
 
             System.out.println("Wysyłam SMS do " + number + ": " + message);
-            batterState -= 100;
+            batteryPercentage -= 5;
         } else {
             System.out.println("BŁĄD: Bateria jest za słaba, aby wysłać SMS!");
         }
     }
 
+    @Override
+    public void chargeWithThinPin() {
+
+    }
+
+    @Override
+    public void connectToGPS(GPS gps) {
+
+    }
+
+    @Override
+    public List<Double> getPhoneLocation() {
+        return List.of();
+    }
+
     //SEKCJA Z KAMERAMI
     public void setCamera(String type) throws IllegalArgumentException {
-        if (type.equalsIgnoreCase("PRZEDNIA")) {
+        if (type.equalsIgnoreCase("SONY")) {
             this.frontCamera = new FrontCamera();
             this.backCamera = null;
             this.wideAngleCamera = null;
-            this.activeCamera = "PRZEDNIA";
+            this.activeCamera = "SONY";
             return;
-        } else if (type.equalsIgnoreCase("TYLNIA")) {
+        } else if (type.equalsIgnoreCase("SAMSUNG")) {
             this.backCamera = new BackCamera();
             this.frontCamera = null;
             this.wideAngleCamera = null;
-            this.activeCamera = "TYLNIA";
+            this.activeCamera = "SAMSUNG";
             return;
-        } else if (type.equalsIgnoreCase("SZEROKOKATNA")) {
+        } else if (type.equalsIgnoreCase("PINHOLE")) {
             this.wideAngleCamera = new WideAngleCamera();
             this.frontCamera = null;
             this.backCamera = null;
-            this.activeCamera = "SZEROKOKATNA";
+            this.activeCamera = "PINHOLE";
             return;
         }
 
         throw new IllegalArgumentException("Nieznany typ kamery: " + type);
     }
 
-    @Override
     public void takePhoto() {
-        if (batterState > 500) {
+        if (batteryPercentage > 12) {
             if (activeCamera.equals("PRZEDNIA") && frontCamera != null) {
                 //tu sa wymiary w centymetrach (bo tak)
                 frontCamera.makeSelfie(100, 30);
@@ -155,17 +174,16 @@ public class SuperPhone implements IPhone, Phone {
                 System.out.println("BŁĄD KRYTYCZNY: Nie wybrano aparatu lub sprzęt nie jest zainicjalizowany!");
                 return;
             }
-            batterState -= 500;
+            batteryPercentage -= 12;
         } else {
             System.out.println("BŁĄD: Bateria jest za słaba, aby zrobić zdjęcie!");
         }
     }
 
-    @Override
     public void connectTo5G() {
-        if (batterState > 300) {
+        if (batteryPercentage > 6) {
             System.out.println("Połączono z siecią 5G.");
-            batterState -= 300;
+            batteryPercentage -= 6;
         } else {
             System.out.println("BŁĄD: Bateria jest za słaba, aby połączyć się z 5G!");
         }
@@ -187,22 +205,21 @@ public class SuperPhone implements IPhone, Phone {
 
     @Override
     public void browseInternet() {
-        if (batterState > 400) {
+        if (batteryPercentage > 10) {
             System.out.println("Otwieram przeglądarkę...");
-            batterState -= 400;
+            batteryPercentage -= 10;
         } else {
             System.out.println("BŁĄD: Bateria jest za słaba, aby przeglądać internet!");
         }
     }
 
-    @Override
     public void backupPhotos() {
-        if (batterState > 800) {
+        if (batteryPercentage > 15) {
             GoogleDriveStorage googleStorage = new GoogleDriveStorage();
 
             System.out.println("Przygotowuję backup...");
             googleStorage.uploadAllPhotos();
-            batterState -= 800;
+            batteryPercentage -= 15;
         } else {
             System.out.println("BŁĄD: Bateria jest za słaba, aby zrobić backup!");
         }
@@ -218,9 +235,9 @@ public class SuperPhone implements IPhone, Phone {
     @Override
     public void charge(String chargerType){
         if (chargerType.equals("Pin")) {
-            this.batterState += 1000;
+            this.batteryPercentage += 10;
         } else if (chargerType.equals("Thin-Pin")) {
-            this.batterState += 500;
+            this.batteryPercentage += 5;
         } else {
             System.out.println("Nieobsługiwana ładowarka!");
         }

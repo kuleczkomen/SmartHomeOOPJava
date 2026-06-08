@@ -1,4 +1,4 @@
-﻿package BigBoyz;
+package BigBoyz;
 
 import LilKlaski.User;
 
