@@ -5,15 +5,7 @@ import java.util.List;
 //Moze i nie umie za dużo
 //Ale się stara
 public class StaraNokia implements IPhone {
-    public int batteryState;
-    private FrontCamera camera;
-
-        public StaraNokia() {
-            this.camera = new FrontCamera();
-            this.batteryState = 3000;
-        }
-public class StaraNokia implements Phone, BatteryDevice {
-    private int batteryPercentage = 100;
+    public int batteryPercentage = 100;
 
     @Override
     public void call(String number) {
@@ -44,13 +36,19 @@ public class StaraNokia implements Phone, BatteryDevice {
     @Override
     public void connectToGPS(GPS gps) {
 
-    public void chargeWithPin() {
-        setBattery(batteryPercentage + 30);
     }
 
     @Override
-    public int getBattery() {
-        return batteryPercentage;
+    public List<Double> getPhoneLocation() {
+        return List.of();
+    }
+
+    public void takePhoto() {
+        throw new UnsupportedOperationException("Błąd: Nokia 3310 nie ma aparatu!");
+    }
+
+    public void connectTo5G() {
+        throw new UnsupportedOperationException("Błąd: 5G w 2000 roku? Zapomnij.");
     }
 
     public void browseInternet() {
@@ -69,8 +67,6 @@ public class StaraNokia implements Phone, BatteryDevice {
         } else {
             System.out.println("Nieobsługiwana ładowarka!");
         }
-    public void setBattery(int battery) {
-        batteryPercentage = battery;
     }
 
     public int getBattery() {

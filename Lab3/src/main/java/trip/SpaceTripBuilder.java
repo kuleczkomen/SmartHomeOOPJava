@@ -5,11 +5,11 @@ import java.time.LocalDate;
 public class SpaceTripBuilder {
 
     private  String destination;
-    private  Double insuranceLimit = null;
+    private  Double insuranceLimit;
     private  LocalDate launchDate;
-    private  Integer extraOxygenTanks = null;
+    private  Integer extraOxygenTanks;
     private  int durationDays;
-    private  String shipModuleType = "STANDARD_V2";
+    private  String shipModuleType;
 
     public SpaceTripBuilder withDestination(String destination) {
         this.destination = destination;
