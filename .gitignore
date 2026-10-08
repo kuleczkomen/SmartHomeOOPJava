@@ -1,0 +1,18 @@
+﻿# Kompilacja i buildy
+target/
+out/
+build/
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Logi i pliki tymczasowe
+*.log
+.DS_Store (dla użytkowników Maca)
+
+# Jeśli używasz wrappera Gradle/Maven (opcjonalnie, ale warto zostawić)
+.gradle/
