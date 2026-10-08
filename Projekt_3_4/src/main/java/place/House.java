@@ -1,6 +1,6 @@
 package place;
 
-import room.model.IRoom;
+import room.model.*;
 
 public class House implements IPlace {
 
@@ -102,6 +102,11 @@ public class House implements IPlace {
     public Corridor getCorridor() {
         return corridor;
     }
+
+    public Kitchen getKitchen() { return  getGroundFloor().getKitchen(); }
+    public LivingRoom getLivingRoom() { return  getGroundFloor().getLivingRoom(); }
+    public Bedroom getBedroom() { return getFirstFloor().getBedroom(); }
+    public Office getOffice() { return getFirstFloor().getOffice(); }
 
     public int getMaxVolumeIn(IRoom room) {
         return room.getSpeaker().getMaxVolume();
