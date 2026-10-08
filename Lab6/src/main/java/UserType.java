@@ -1,4 +1,0 @@
-enum UserType {
-    Employee,
-    Customer
-}

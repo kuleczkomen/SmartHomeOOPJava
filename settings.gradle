@@ -1,11 +1,2 @@
 rootProject.name = 'Pracownia-Projektowa'
-
-// Tu dopisuj każdy kolejny folder, który stworzysz
-include 'Lab2'
-include 'Lab3'
-include 'Lab3_solution'
 include 'Projekt_3_4'
-include 'Lab4'
-include 'Lab_4_solution'
-include 'Lab5'
-include 'Lab6'
